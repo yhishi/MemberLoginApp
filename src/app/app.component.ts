@@ -4,6 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Welcome } from '../pages/welcome/welcome';
+import * as firebase from 'firebase';
+
+const config = {
+};
 
 @Component({
   templateUrl: 'app.html'
@@ -18,5 +22,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    firebase.initializeApp(config);
   }
 }
