@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
 import { Login } from '../login/login';
 import * as firebase from 'Firebase';
+import { Facebook } from '@ionic-native/facebook';
 
 @Component({
   selector: 'page-home',
@@ -9,7 +10,7 @@ import * as firebase from 'Firebase';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public app: App) {
+  constructor(public navCtrl: NavController, public app: App, private facebook:Facebook) {
   }
 
   ionViewDidLoad() {
@@ -33,6 +34,11 @@ export class HomePage {
       }, err => {
       // エラーを表示する等
     });
+
+    // Facebookログアウト
+    this.facebook.logout()
+    .then( res => this.app.getRootNav().popToRoot() )
+    .catch(e => console.log('Error logout from Facebook', e));
   }
 
 }

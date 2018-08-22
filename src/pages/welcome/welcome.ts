@@ -24,6 +24,17 @@ export class Welcome {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Welcome');
+    // Facebookにログイン中かどうか確認
+    this.facebook.getLoginStatus()
+      .then(res => {
+        console.log(res.status);
+        if(res.status === "connect") {
+          alert("isLoggedIn")
+        } else {
+          alert("isLoggedOut")
+        }
+      })
+      .catch(e => console.log(e));
   }
 
   loginEmail(){
