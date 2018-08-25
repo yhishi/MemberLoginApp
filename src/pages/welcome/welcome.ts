@@ -4,6 +4,7 @@ import * as firebase from 'Firebase';
 import { Login } from '../login/login';
 import { Signup } from '../signup/signup';
 import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 import { TabsPage } from '../tabs/tabs';
 
 /**
@@ -19,7 +20,11 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class Welcome {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private facebook:Facebook) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private facebook: Facebook,
+    private googleplus: GooglePlus) {
   }
 
   ionViewDidLoad() {
