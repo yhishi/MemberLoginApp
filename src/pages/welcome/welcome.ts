@@ -24,7 +24,7 @@ export class Welcome {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private facebook: Facebook,
-    private googleplus: GooglePlus) {
+    private googlePlus: GooglePlus) {
   }
 
   ionViewDidLoad() {
@@ -50,7 +50,7 @@ export class Welcome {
    this.navCtrl.push(Signup, {}, {animate:false});
   }
 
-  loginFacebook(): Promise<any> {
+  signInWithFacebook(): Promise<any> {
     return this.facebook.login(['email'])
       .then( response => {
         const facebookCredential = firebase.auth.FacebookAuthProvider
@@ -58,11 +58,29 @@ export class Welcome {
 
         firebase.auth().signInWithCredential(facebookCredential)
           .then( success => { 
-            alert("Firebase success: " + JSON.stringify(success)); 
+            alert("signInWithFacebook success: " + JSON.stringify(success)); 
             this.navCtrl.push(TabsPage);
           });
 
       }).catch((error) => { console.log(error) });
+  }
+
+  signInWithGoogle(): void {
+    this.googlePlus.login({
+      'webClientId': '143845184562-7ikvi2kd1c1qrlmlgiglo7uo7gkfnjdf.apps.googleusercontent.com',
+      'offline': true
+    }).then( res => {
+            const googleCredential = firebase.auth.GoogleAuthProvider
+                .credential(res.idToken);
+   
+            firebase.auth().signInWithCredential(googleCredential)
+              .then( response => {
+                alert("signInWithGoogle success: " + JSON.stringify(response)); 
+                this.navCtrl.push(TabsPage);
+              });
+    }, err => {
+        console.error("Error: ", err)
+    });
   }
 
 }

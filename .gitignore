@@ -33,3 +33,6 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .sourcemaps/main.js.map
+
+google-services.json
+GoogleService-Info.plist

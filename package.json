@@ -60,7 +60,7 @@
         "ANDROID_SDK_VERSION": "4.+"
       },
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "myreversedclientid"
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.143845184562-b05v25rs7hj6lrd4cg10bhf09tnf0n8v"
       }
     },
     "platforms": [

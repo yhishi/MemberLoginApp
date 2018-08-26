@@ -3,6 +3,7 @@ import { NavController, App } from 'ionic-angular';
 import { Login } from '../login/login';
 import * as firebase from 'Firebase';
 import { Facebook } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +11,11 @@ import { Facebook } from '@ionic-native/facebook';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public app: App, private facebook:Facebook) {
+  constructor(
+    public navCtrl: NavController, 
+    public app: App, 
+    private facebook:Facebook,
+    private googlePlus: GooglePlus) {
   }
 
   ionViewDidLoad() {
@@ -37,6 +42,10 @@ export class HomePage {
 
     // Facebookログアウト
     this.facebook.logout()
+    .then( res => this.app.getRootNav().popToRoot() )
+    .catch(e => console.log('Error logout from Facebook', e));
+
+    this.googlePlus.logout()
     .then( res => this.app.getRootNav().popToRoot() )
     .catch(e => console.log('Error logout from Facebook', e));
   }

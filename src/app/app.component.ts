@@ -7,6 +7,12 @@ import { Welcome } from '../pages/welcome/welcome';
 import * as firebase from 'firebase';
 
 const config = {
+  apiKey: 'AIzaSyBgwhv9eXnVur0QMeR2_C8DIzGUK2th0iE',
+  authDomain: 'memberapp-5f95d.firebaseapp.com',
+  databaseURL: 'https://memberapp-5f95d.firebaseio.com',
+  projectId: 'memberapp-5f95d',
+  storageBucket: 'memberapp-5f95d.appspot.com',
+  messagingSenderId: '143845184562'
 };
 
 @Component({

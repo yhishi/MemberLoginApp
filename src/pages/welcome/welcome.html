@@ -9,8 +9,10 @@
 
 <button ion-button block class="marginTop" (click)="signUp()">Signup</button>
 <button ion-button block color="lightprimary" (click)="loginEmail()">Login</button>
-<button ion-button icon-right class="fb_btn" (click)="loginFacebook()">
-        Login with Facebook
+<button ion-button block icon-left class="fb_btn" (click)="signInWithFacebook()">
+        Sign in with Facebook
         <ion-icon name="logo-facebook"></ion-icon></button>
-        
+<button ion-button block icon-left (click)="signInWithGoogle()" >
+        Sign in with Google
+        <ion-icon name="logo-googleplus"></ion-icon></button>        
 </ion-content>  
